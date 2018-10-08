@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             xmlns:support="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="{localization:Translate DefektacijasAktsTitle}" 
+             NavigationPage.HasBackButton="False"
+             x:Class="ControlitFactory.Views.Ieraksts">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Icon="ok.png" Command="{Binding Path=SaveProfileCommand}" CommandParameter="{}"/>
+        <ToolbarItem Text="Delete" Icon="delete.png" Command="{Binding Path=DeleteCommand}"/>
+        <ToolbarItem Text="Share" Icon="share.png" Command="{Binding Path=ShareCommand}"/>
+        <ToolbarItem Text="Cancel" Icon="cancel.png" Command="{Binding Path=CancelCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="5,0,0,0" FontSize="Small" x:Name="ActNumberLabel"  Text="{localization:Translate ActNumberLabel}"/>
+                <Entry Grid.Row="1" FontSize="Small" Text="{Binding  Path=DefektacijasAkts.AktaNr, Mode=TwoWay }"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label FontSize="Small" Margin="5,0,0,0" x:Name="AddressLabel" Grid.Column="0"  Text="{localization:Translate AddressLabel}"/>
+                    <Label FontSize="Small" Text="{Binding Path=DefektacijasAkts.GPSLabel}" Grid.Column="1" />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0" FontSize="Small" x:Name="Adrese" Text="{Binding  Path=DefektacijasAkts.Adrese, Mode=TwoWay }"/>
+                    <ActivityIndicator x:Name="Loadings" Grid.Column="1"  Color="Green" IsRunning="False" HeightRequest="24" WidthRequest="24" />
+                    <Image Grid.Column="1" x:Name="GetAddress" Source="confirm_address.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                    <Image Grid.Column="2" x:Name="MapButton" Source="google.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                </Grid>
+
+                <Label Grid.Row="4" Margin="5,0,0,0"  FontSize="Small" x:Name="PhoneLabel"  Text="{localization:Translate PhoneLabel}"/>
+                <Entry Grid.Row="5" FontSize="Small" x:Name="Talrunis" Keyboard="Telephone" Text="{Binding  Path=DefektacijasAkts.Talrunis, Mode=TwoWay }"/>
+
+                <Label Grid.Row="6" Margin="5,0,0,0"  FontSize="Small" x:Name="MailLabel"  Text="{localization:Translate MailLabel}"/>
+                <Entry Grid.Row="7" FontSize="Small" x:Name="Epasts" Keyboard="Email"  Text="{Binding  Path=DefektacijasAkts.Epasts, Mode=TwoWay }"/>
+
+                <Label Grid.Row="8" Margin="5,0,0,0"  FontSize="Small" x:Name="HighWoltageLabel"  Text="{localization:Translate HighWoltageLabel}"/>
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker Grid.Column="0"  HorizontalOptions="FillAndExpand" ItemsSource="{Binding Path=Iekartas}" SelectedItem="{Binding Path=HighWoltageEquipment}"/>
+                    <Image Grid.Column="1" x:Name="ClearHighWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
+                </Grid>
+                
+                
+                <Label Grid.Row="10" Margin="5,0,0,0"  FontSize="Small" x:Name="LowWoltageLabel"  Text="{localization:Translate LowWoltageLabel}"/>
+                <Grid Grid.Row="11">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker Grid.Column="0" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Path=Iekartas}" SelectedItem="{Binding Path=LowWoltageEquipment}"/>
+                    <Image Grid.Column="1" x:Name="LowWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
+                </Grid>
+                <Label Grid.Row="12" Margin="5,0,0,0"  FontSize="Small" x:Name="EquipmentCallibrationLabel"  Text="{localization:Translate EquipmentCallibrationLabel}"/>
+                <Entry Grid.Row="13" FontSize="Small" x:Name="IekartasKalibracija" Text="{Binding  Path=DefektacijasAkts.IekartasKalibracija, Mode=TwoWay }"/>
+
+                <Label Grid.Row="14" Margin="5,0,0,0"  FontSize="Small" x:Name="MembraneTypeLabel"  Text="{localization:Translate MembraneTypeLabel}"/>
+                <Entry Grid.Row="15" FontSize="Small" x:Name="MembranasVeids" Text="{Binding  Path=DefektacijasAkts.MembranasVeids, Mode=TwoWay }"/>
+
+                <Label Grid.Row="16" Margin="5,0,0,0"  FontSize="Small" x:Name="MembraneNameLabel"  Text="{localization:Translate MembraneNameLabel}"/>
+                <Entry Grid.Row="17" FontSize="Small" x:Name="MembranasNosaukums" Text="{Binding  Path=DefektacijasAkts.MembranasNosaukums, Mode=TwoWay }"/>
+
+                <Label Grid.Row="18" Margin="5,0,0,0"  FontSize="Small" x:Name="MembraneThicknessLabel"  Text="{localization:Translate MembraneThicknessLabel}"/>
+                <Entry Grid.Row="19" FontSize="Small" x:Name="MembranasBiezums" Text="{Binding  Path=DefektacijasAkts.MembranasBiezums, Mode=TwoWay }"/>
+
+
+
+                <Label Grid.Row="20" Margin="5,0,0,0"  FontSize="Small" x:Name="ParbaudamaPlatibaLabel"  Text="{localization:Translate ParbaudamaPlatibaLabel}"/>
+                <localization:NumericTextBox FontSize="Small" Grid.Row="21" x:Name="ParbaudamaPlatiba" NumericValueFormat="N2" NumericValue="{Binding  Path=DefektacijasAkts.ParbaudamaPlatiba, Mode=TwoWay }"/>
+
+                <Label Grid.Row="22" Margin="5,0,0,0"  FontSize="Small" x:Name="TransportaIzdevumiLabel"  Text="{localization:Translate TransportaIzdevumiLabel}"/>
+                <localization:NumericTextBox FontSize="Small"  Grid.Row="23" x:Name="TransportaIzdevumi" NumericValueFormat="N2" NumericValue="{Binding  Path=DefektacijasAkts.TransportaIzdevumi, Mode=TwoWay}"/>
+
+                <Label Grid.Row="24"  Margin="5,0,0,0" FontSize="Small" x:Name="DiagnostikaLabel"  Text="{localization:Translate DiagnostikaLabel}"/>
+                <localization:NumericTextBox Grid.Row="25" FontSize="Small"  x:Name="Diagnostika" NumericValueFormat="N2" NumericValue="{Binding  Path=DefektacijasAkts.Diagnostika, Mode=TwoWay}"/>
+
+                <Label Grid.Row="26" Margin="5,0,0,0"  FontSize="Small" x:Name="KopaLabel"  Text="{localization:Translate KopaLabel}"/>
+                <Grid Grid.Row="27" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <localization:NumericTextBox FontSize="Small"  Grid.Column="0" x:Name="Kopa" NumericValueFormat="N2" NumericValue="{Binding  Path=DefektacijasAkts.Kopa, Mode=TwoWay}"/>
+                    <Image Grid.Column="1" x:Name="GetIzmaksasKopa" Source="confirm_address.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                </Grid>
+                
+                <Label Grid.Row="28" Margin="5,0,0,0"  FontSize="Small" x:Name="ParbaudeUzsaktaLabel"  Text="{localization:Translate ParbaudeUzsaktaLabel}"/>
+                <Grid Grid.Row="29" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DatePicker x:Name="ParbaudeUzsaktaDate" Grid.Column="0" Date="{Binding Path=UzsaksanasDatums, Mode=TwoWay}"/>
+                    <TimePicker Grid.Column="1" x:Name="ParbaudeUzsaktaTime" Time="{Binding Path= UzsaksanasLaiks, Mode=TwoWay}"  />
+                    <Image Grid.Column="2" x:Name="GetDateAndTime" Source="confirm_address.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                </Grid>
+
+                <Label Grid.Row="30" Margin="5,0,0,0"  FontSize="Small" x:Name="ParbaudePabeigtaLabel"  Text="{localization:Translate ParbaudePabeigtaLabel}"/>
+                <Grid Grid.Row="31" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <DatePicker x:Name="ParbaudePabeigtaDate" Grid.Column="0" Date="{Binding Path=PabeigsanasDatums, Mode=TwoWay}"/>
+                    <TimePicker Grid.Column="1" x:Name="ParbaudePabeigtaTime" Time="{Binding Path=PabeigsanasLaiks, Mode=TwoWay}"  />
+                    <Image Grid.Column="2" x:Name="GetDateAndTimePabeigta" Source="confirm_address.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                </Grid>
+
+                <Label Grid.Row="32" Margin="5,0,0,0"  FontSize="Small" x:Name="LaiksKopaLabel"  Text="{localization:Translate LaiksKopaLabel}"/>
+                <Grid Grid.Row="33" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <localization:NumericTextBox Grid.Column="0" FontSize="Small"  x:Name="LaiksKopa" NumericValueFormat="N2" NumericValue="{Binding  Path=DefektacijasAkts.LaiksKopa, Mode=TwoWay}"/>
+                    <Image Grid.Column="1" x:Name="GetLaiksKopa" Source="confirm_address.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+                </Grid>
+                
+                <Label Grid.Row="34" Margin="5,0,0,0"  FontSize="Small" x:Name="ParbaudiVeicaLabel"  Text="{localization:Translate ParbaudiVeicaLabel}"/>
+                <Entry Grid.Row="35" FontSize="Small" x:Name="ParbaudiVeica" Text="{Binding  Path=DefektacijasAkts.ParbaudiVeica, Mode=TwoWay }"/>
+
+                <Label Grid.Row="36" Margin="5,0,0,0"  FontSize="Small" x:Name="PasutitajaParstavisLabel"  Text="{localization:Translate PasutitajaParstavisLabel}"/>
+                <Entry Grid.Row="37" FontSize="Small" x:Name="PasutitajaParstavis" Text="{Binding  Path=DefektacijasAkts.PasutitajaParstavis, Mode=TwoWay }"/>
+                <controls:SignaturePadView Grid.Row="38" HeightRequest="200"
+                CaptionTextColor="#B8860B" ClearTextColor="#B8860B" PromptTextColor="#B8860B"
+                               CaptionText="Paraksts"         
+                SignatureLineColor="#B8860B" 
+                x:Name="signaturePadView"  />
+                <Image Grid.Row="39" Source="{Binding  Path=Paraksts, Mode=OneWay}" HeightRequest="200" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

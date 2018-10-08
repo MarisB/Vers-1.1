@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wpa81+wp8</AssetTargetFallback>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="2.5.7" PrivateAssets="all" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
+    <PackageReference Include="Xamarin.Essentials" Version="0.8.0-preview" />
+    <PackageReference Include="Prism.QuickStart.MFractor.Config" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="sqlite-net" Version="1.0.8" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
+    <PackageReference Include="TK.CustomMap" Version="2.0.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.0.122203" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
+    <PackageReference Include="Portable.Text.Encoding" Version="0.8.3" />
+    <PackageReference Include="XFControls" Version="1.0.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\CustomNavigationPage.xaml" />
+    <EmbeddedResource Remove="Views\ImageHelper.xaml" />
+    <EmbeddedResource Remove="Views\SplashScreenPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\CustomNavigationPage.xaml" />
+    <None Include="Views\CustomToolbarContentPage.xaml" />
+    <None Include="Views\DefektaRegistracija.xaml" />
+    <None Include="Views\Defekti.xaml" />
+    <None Include="Views\EditTabPage.xaml" />
+    <None Include="Views\Equipment.xaml" />
+    <None Include="Views\EquipmentEdit.xaml" />
+    <None Include="Views\Ieraksts.xaml" />
+    <None Include="Views\ImageHelper.xaml" />
+    <None Include="Views\Settings.xaml" />
+    <None Include="Views\SplashScreenPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\CustomNavigationPage.xaml.cs" />
+    <Compile Remove="ViewModels\CustomNavigationPageViewModel.cs" />
+    <Compile Remove="Resx\AppResources.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\EditTabPage.xaml.cs">
+      <DependentUpon>EditTabPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resx\AppResources.Designer.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.lt.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.lv.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.ru.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\AppResources.se.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasBackButton="False"
+             x:Class="ControlitFactory.Views.EquipmentEdit">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Icon="ok.png" Command="{Binding Path=SaveCommand}"/>
+        <ToolbarItem Text="Delete" Icon="delete.png" Command="{Binding Path=DzestCommand}"/>
+        <ToolbarItem x:Name="backIcon" Text="Cancel" Icon="cancel.png"  Command="{Binding Path=CancelCommand}"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Margin="5,0,0,0" FontSize="Small" x:Name="SerialNumberLabel"  Text="{localization:Translate SerialNumberLabel}"/>
+        <Entry Grid.Row="1" FontSize="Small" Text="{Binding  Path=Equipment.Code, Mode=TwoWay }"/>
+        <Label Grid.Row="2" Margin="5,0,0,0" FontSize="Small" x:Name="EquipmentLabel"  Text="{localization:Translate EquipmentLabel}"/>
+        <Entry Grid.Row="3" FontSize="Small" Text="{Binding  Path=Equipment.Name, Mode=TwoWay }"/>
+    </Grid>
+</ContentPage>

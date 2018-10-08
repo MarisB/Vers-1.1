@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasBackButton="False"
+             x:Class="ControlitFactory.Views.Equipment">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Icon="add.png" Command="{Binding Path=PievienotCommand}"/>
+        <ToolbarItem x:Name="backIcon" Text="Cancel" Icon="cancel.png"  Command="{Binding Path=CancelCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <localization:BetterListView ItemsSource="{Binding Path=Ieraksti}"  ItemClickCommand="{Binding AtvertCommand}">
+
+        </localization:BetterListView>
+    </ContentPage.Content>
+</ContentPage>

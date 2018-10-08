@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasBackButton="False"
+             x:Class="ControlitFactory.Views.Settings">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Icon="ok.png" Command="{Binding Path=SaveProfileCommand}"/>
+        <ToolbarItem x:Name="backIcon" Text="Cancel" Icon="cancel.png"  Command="{Binding Path=CancelCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="Small" x:Name="LanguageLabel"  Margin="20,0,0,0" Text="{localization:Translate LanguageLabel}"/>
+                <Picker Grid.Row="1" x:Name="languagePicker" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Path=Valodas}" SelectedItem="{Binding Path=Profile.Valoda}"/>
+                <Label Grid.Row="2" FontSize="Small" x:Name="NameLabel"  Margin="20,0,0,0" Text="{localization:Translate NameLabel}"/>
+                <Entry Grid.Row="3" FontSize="Small" Keyboard="Chat" Text="{Binding  Path=Profile.Name}"/>
+                <Label Grid.Row="4" FontSize="Small" x:Name="SurnameLabel"  Margin="20,0,0,0" Text="{localization:Translate SurnameLabel}"/>
+                <Entry Grid.Row="5" FontSize="Small" Keyboard="Chat" Text="{Binding  Path=Profile.Surname}"/>
+                <Label Grid.Row="6" FontSize="Small" x:Name="PhoneLabel"  Margin="20,0,0,0" Text="{localization:Translate PhoneLabel}"/>
+                <Entry Grid.Row="7" FontSize="Small" Text="{Binding  Path=Profile.Phone}" Keyboard="Telephone"/>
+                <Label Grid.Row="8" FontSize="Small" x:Name="MailLabel"  Margin="20,0,0,0" Text="{localization:Translate MailLabel}"/>
+                <Entry Grid.Row="9" FontSize="Small" Text="{Binding  Path=Profile.Mail}" Keyboard="Email"/>
+                <Label Grid.Row="10" FontSize="Small" x:Name="SertificateNumberLabel"  Margin="20,10,0,0" Text="{localization:Translate SertificateNumberLabel}"/>
+                <Entry Grid.Row="11" FontSize="Small" Text="{Binding  Path=Profile.SertificateNumber}"/>
+                <Label Grid.Row="12" FontSize="Small" x:Name="VatLabel"  Margin="20,0,0,0" Text="{localization:Translate VatLabel}"/>
+                <localization:NumericTextBox Grid.Row="13" FontSize="Small" NumericValueFormat="N0" NumericValue="{Binding  Path=Profile.Vat}"/>
+
+                <Label Grid.Row="14" FontSize="Small" x:Name="CurrencyLabel"  Margin="20,10,0,0" Text="{localization:Translate CurrencyLabel}"/>
+                <Entry Grid.Row="15" FontSize="Small" Text="{Binding  Path=Profile.Currency}"/>
+                
+                <Label Grid.Row="16" FontSize="Small" x:Name="UznemumaDatiLabel"  Margin="20,0,0,0" Text="{localization:Translate UznemumaDatiLabel}"/>
+                <Entry Grid.Row="17" FontSize="Small" Text="{Binding  Path=Profile.UznemumaDati}"/>
+                <Label Grid.Row="18" FontSize="Small" x:Name="LogoLabel"  Margin="20,0,0,0" Text="{localization:Translate LogoLabel}"/>
+                <Image Grid.Row="19" x:Name="image" Source="{Binding  Path=Logo, Mode=OneWay}" HeightRequest="200" />
+                <Button Grid.Row="20" x:Name="PievienotLabel" Text="{localization:Translate PievienotLbel}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

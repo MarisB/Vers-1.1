@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             x:Class="ControlitFactory.Views.DefektaRegistracija" NavigationPage.HasBackButton="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Icon="add.png" Command="{Binding Path=PievienotDefektuCommand}"/>
+        <ToolbarItem Text="Save" Icon="ok.png" Command="{Binding Path=SaveCommand}"/>
+        <ToolbarItem Text="Cancel" Icon="cancel.png" Command="{Binding Path=CancelCommand}"/>
+        <ToolbarItem Text="Delete" Icon="delete.png" Command="{Binding Path=DeleteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="5,0,0,0" FontSize="Small" x:Name="DefektaNrLabel"  Text="{localization:Translate DefektaNrLabel}"/>
+                <Entry Grid.Row="1" FontSize="Small" Text="{Binding  Path=Defekts.DefektaNr, Mode=TwoWay }"/>
+
+                <ctrls:RadioGroup Grid.Row="2" ItemsSource="{Binding Path=RadioButtonSource}" SelectedItem="{Binding Novietojums}" Orientation="Vertical" DisplayPath="Name" OnImg="radio1.png"
+                      OffImg="radio2.png" />
+
+                <Image Grid.Row="3" x:Name="CameraButton" Source="photo_camera.png" WidthRequest="24" HeightRequest="24" Margin="0,0,10,0"/>
+
+                <Image Grid.Row="4" x:Name="PhotoImage"  Source="{Binding Defekts.BildeAttelosanai, Mode=TwoWay}" />
+
+                <Label Grid.Row="5" Margin="5,0,0,0" FontSize="Small" x:Name="DefektācijasAprakstsLabel"  Text="{localization:Translate DefektācijasAprakstsLabel}"/>
+                <Editor Grid.Row="6" x:Name="Piezimes" FontSize="Small" Keyboard="Chat" HeightRequest="100" Text="{Binding  Path=Defekts.Piezimes, Mode=TwoWay }"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

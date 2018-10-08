@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:localization="clr-namespace:ControlitFactory.Support;assembly=ControlitFactory"
+             prism:ViewModelLocator.AutowireViewModel="True"
+              Title="{localization:Translate DefektiTitle}"
+             x:Class="ControlitFactory.Views.Defekti"  NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Icon="add.png" Command="{Binding Path=PievienotDefektuCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <localization:BetterListView ItemsSource="{Binding Path=Ieraksti}"  ItemClickCommand="{Binding AtvertDefektuCommand}">
+
+        </localization:BetterListView>
+    </ContentPage.Content>
+</ContentPage>
