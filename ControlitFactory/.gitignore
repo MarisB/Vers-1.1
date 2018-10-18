@@ -57,7 +57,3 @@ Secrets.cs
 # Auto generated files
 project.lock.json
 ControlitFactory.*.nuget.*
-
-# Manifests
-Info.plist
-AndroidManifest.xml
