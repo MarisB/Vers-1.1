@@ -33,8 +33,10 @@ namespace ControlitFactory.iOS
 
                 //}
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                var f = Path.Combine(documents, filename);
-                File.WriteAllText(filename, text);
+                var  f = Path.Combine(documents, filename);
+                File.WriteAllText(f, text);
+                return f;
+
 
             }
             catch (Exception)

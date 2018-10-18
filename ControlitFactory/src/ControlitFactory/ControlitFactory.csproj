@@ -31,6 +31,10 @@
     <EmbeddedResource Remove="Views\SplashScreenPage.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Reporten.txt" />
+    <None Remove="Reportlv.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Views\CustomNavigationPage.xaml" />
     <None Include="Views\CustomToolbarContentPage.xaml" />
     <None Include="Views\DefektaRegistracija.xaml" />
@@ -46,6 +50,9 @@
   <ItemGroup>
     <Reference Include="Xamarin.iOS">
       <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +72,12 @@
     <EmbeddedResource Include="Resx\AppResources.Designer.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporten.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportlv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resx\AppResources.resx">
@@ -82,5 +95,13 @@
     <EmbeddedResource Update="Resx\AppResources.se.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Reporten.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reportlv.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

@@ -152,11 +152,11 @@ namespace ControlitFactory.ViewModels
                         email.WithAttachment(fi, "report");
                         foreach (var item in defekti)
                         {
-                            email.WithAttachment(item.FilePath, "image");
+                            if(!string.IsNullOrWhiteSpace(item.FilePath))
+                                email.WithAttachment(item.FilePath, "image");
                         }
                         var m = email.Build();
                         emailMessenger.SendEmail(m);
-
 
                     }
                     catch (Exception ex)

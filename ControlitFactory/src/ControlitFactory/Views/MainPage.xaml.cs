@@ -1,5 +1,6 @@
 using System;
 using ControlitFactory.ViewModels;
+using ControlitFactory.Support;
 using Xamarin.Forms;
 
 namespace ControlitFactory.Views
@@ -28,12 +29,12 @@ namespace ControlitFactory.Views
             var viewModel = BindingContext as MainPageViewModel;
 
             ToolbarItems.Clear();
-
+            var tr = new TranslateExtension();
             if (viewModel != null)
             {
                 _add = new ToolbarItem
                 {
-                    Text = "Pievienot",
+                    Text = tr.GetTranslation("PievienotLbel"),
                     Icon = "add.png",
                     Command = viewModel.PievienotDefektacijasAktuCommand,
                     Order = ToolbarItemOrder.Primary
@@ -43,7 +44,7 @@ namespace ControlitFactory.Views
 
                 _settings = new ToolbarItem
                 {
-                    Text = "Profils",
+                    Text = tr.GetTranslation("SettingsMenu"),
                     Icon = "add.png",
                     Command = viewModel.NavigateCommand,
                     CommandParameter = nameof(Settings),
@@ -53,7 +54,7 @@ namespace ControlitFactory.Views
                 ToolbarItems.Add(_settings);
                 _equipment = new ToolbarItem
                 {
-                    Text = "Iekārtas",
+                    Text = tr.GetTranslation("EquipmentMenu"),
                     Icon = "add.png",
                     Command = viewModel.NavigateCommand,
                     CommandParameter = nameof(Equipment),
@@ -63,7 +64,7 @@ namespace ControlitFactory.Views
                 ToolbarItems.Add(_equipment);
                 _help = new ToolbarItem
                 {
-                    Text = "Palīdzība",
+                    Text = tr.GetTranslation("HelpMenu"),
                     Icon = "add.png",
                     Command = viewModel.HelpCommand,
                     Order = ToolbarItemOrder.Secondary

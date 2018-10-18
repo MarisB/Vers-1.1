@@ -1,0 +1,170 @@
+﻿<html lang="lv">
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			.teksts 
+			{
+				font-size:10.0pt;
+				font-weight: bold;
+			}
+			.vertiba 
+			{
+				font-size:10.0pt;
+				font-weight: normal;
+			}
+			#bg-text
+			{
+				color:gray;
+				font-size:12px;
+			}
+		</style>
+	</head>
+	<body lang="lv">
+		<table border='0' width='100%'>
+			<tr><td>$LOGO$</td><tr>
+			<tr><td><span style="font-size:10.0pt;">$NK$</span></td></tr>
+			<tr><td style='text-align: center;'><span style="font-size:12.0pt;"><b>Akts Nr. $AN$</b></span></td></tr>
+			<tr><td style='text-align: center;'><span style="font-size:10.0pt;">Jumta hidroizolācijas pārbaude</span></td></tr>
+		</table>
+		<table border='0'>
+			<tr>
+				<td><span class='teksts'>Defektācijas akts Nr.: </span></td>
+				<td><span class='vertiba'>$AN$</span></td>	
+			<tr>
+			<tr>							
+				<td><span  class='teksts'>Objekts (adrese):</span></td>
+				<td><span class='vertiba'>$AD$</span></td>		
+			</tr>
+			<tr>							
+				<td><span  class='teksts'>Kontaktinformacija:</span></td>
+				<td><span class='vertiba'>Telefona numurs: $TEL$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e-pasts: $MAIL$</span></td>	
+			</tr>
+		</table>
+		<table border='0'>
+			<tr>							
+				<td  colspan='4'></br></br><span  class='teksts'>Parbaudes iekarta:</span></td>
+			</tr>
+			<tr>							
+				<td ><span  class='teksts'>Augsta sprieguma pārbaudes iekārta:</span></td>
+				<td><span  class='vertiba'>$HWIDN$</span></td>					
+				<td ><span  class='teksts'>Sērijas Nr.:</span></td>
+				<td><span  class='vertiba'>$HWIDS$</span></td>
+			</tr>
+			<tr>							
+				<td ><span  class='teksts'>Zema sprieguma pārbaudes iekārta:</span></td>
+				<td><span  class='vertiba'>$LWIDN$</span></td>				
+				<td ><span  class='teksts'>Sērijas Nr.:</span></td>
+				<td><span  class='vertiba'>$LWIDS$</span></td>
+			</tr>
+			<tr>							
+				<td colspan='3'><span  class='teksts'>Iekartas kalibracija pret parbaudamo membranu( augstsprieguma ELD iekarta):</span></td>
+				<td><span  class='vertiba'>$CEAM$ Kv</span></td>	
+			</tr>
+		</table>
+		</br>
+		<table width='70%'>
+		<tr><td><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Parbaudāmās virsmas parametri</span></td></tr>
+		<tr>
+			<td>
+				<table border='1' cellspacing='0' cellpadding='0'>
+					<tr><td style="border-bottom: none;border-right:none;"></br><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Hidroizolacijas membrana&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+						<td  style="border-bottom: none;border-left:none;"></br><span  class='teksts'>Veids&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+						<td  style="border-bottom: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp; $WMT$ &nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+					</tr>
+					<tr>
+						<td style="border-bottom: none;border-top: none; border-right:none;"></td>
+						<td style="border-bottom: none;border-top: none;border-left:none;"></br><span  class='teksts'>Nosaukums</span></td>
+						<td style="border-bottom: none;border-top: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp;$WMN$</span></td>
+					</tr>
+					<tr>
+						<td style="border-top: none;border-right:none;"></td>
+						<td style="border-top: none;border-left:none;"></br><span  class='teksts'>Biezums</span></td>
+						<td style="border-top: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp;$WMT$</span></td>
+					</tr>
+					<tr>
+						<td colspan='2'></br><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Pārbaudāmā platība (m<sup>2</sup>)</br></span></br></td>
+						<td><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp; $PLA$ m<sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+					</tr>
+					<tr>
+						<td style="border-bottom: none;border-right:none;">
+						</br><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Tehniskās pārbaudes izmaksas</span></td>
+						<td  style="border-bottom: none;border-left:none;"></br><span  class='teksts'>Transporta izdevumi</span></td>
+						<td  style="border-bottom: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp;$TIZD$ $MT$&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+					</tr>
+					<tr>
+						<td style="border-bottom: none;border-top: none; border-right:none;"></td>
+						<td style="border-bottom: none;border-top: none;border-left:none;"></br><span  class='teksts'>Diagnostika</span></td>
+						<td style="border-bottom: none;border-top: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp;$DIAG$ $MT$</span></td>
+					</tr>
+					<tr>
+						<td style="border-bottom: none;border-top: none; border-right:none;"></td>
+						<td style="border-bottom: none;border-top: none;border-left:none;"></br><span  class='teksts'>KOPĀ + PVN $VAT$%</span></td>
+						<td style="border-bottom: none;border-top: none;"></br><span  class='vertiba'>&nbsp;&nbsp;&nbsp;&nbsp;$TOT$ $MT$</span></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+		</br>
+		<table border='0'>
+			<tr><td><span  class='teksts'>Pārbaude uzsākta:</span></td><td><span  class='vertiba'>$UZS$</span></td><tr>
+			<tr><td></td><td><span  class='vertiba'>(datums, laiks)</span></td></tr>
+			<tr><td><span  class='teksts'>Pārbaude pabeigta:</span></td><td><span  class='vertiba'>$PAB$</span></td></tr>
+			<tr><td></td><td><span  class='vertiba'>(datums, laiks)</span></td></tr>
+			<tr><td><span  class='teksts'>Kopā:</span></td><td><span  class='vertiba'>$KST$</span></td></tr>
+			<tr><td></td><td><span  class='vertiba'>(stundas)</span></td></tr>
+		</table>
+		</br>
+		<table>
+			<tr><td><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Pārbaudes rezultāti:</span></td></tr>
+			<tr><td>
+					<table border='1' cellspacing='0' cellpadding='0'>
+						<tr>
+							<td style="text-align:center;"><span  class='teksts'>Defekti</span></td>
+							<td style="text-align:center;"><span  class='teksts'>Kopā</span></td>
+						</tr>
+						<tr>
+							<td style="text-align:left;"><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;1. Horizontālā virsmā</span></td>
+							<td style="text-align:center;"><span  class='vertiba'>$HO$</span></td>
+						</tr>
+						<tr>
+							<td style="text-align:left;"><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;2. Vertikālā virsmā (parapets, siena)</span></td>
+							<td style="text-align:center;"><span  class='vertiba'>$VE$</span></td>
+						</tr>
+						<tr>
+							<td style="text-align:left;"><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;3. Kopā</span></td>
+							<td style="text-align:center;"><span  class='vertiba'>$KE$</span></td>
+						</tr>
+					</table>
+				</td>
+			</tr>						
+		</table>
+		</br>
+		<table>
+			<tr><td><span  class='teksts'>&nbsp;&nbsp;&nbsp;&nbsp;Defektācijas apraksts, veicamie darbi defektu novēršanai. (Pielikumā foto fiksācija objektā)</span></td></tr>
+		</table>
+		<table border='1' cellspacing='0' cellpadding='0'><tr><td></br><span  class='teksts'>$DE$</span></br></td></tr></table>
+		</br>
+		<table>
+			<tr>
+				<td><span  class='teksts'>Pārbaudi veica:</span></td>
+				<td><span  class='vertiba'>$VUS$</span></td>
+			</tr>
+			<tr>
+				<td><span  class='teksts'></span></td>
+				<td><span  class='vertiba'>(vārds/uzvārds, sertifikāta numurs)</span></td>
+			</tr>
+			<tr>
+				<td style='vertical-align:bottom'><span  class='teksts'>Pasūtītāja pārstāvis:</span></td>
+				<td style='vertical-align:bottom'><span  class='vertiba'>$PVU$</span></td>
+			</tr>
+			<tr>
+				<td><span  class='teksts'></span></td>
+				<td><span  class='vertiba'>(vārds/uzvārds, paraksts)</span></td>
+			</tr>
+		</table>
+		</br>
+		<p id='bg-text'>Atskaite izveidota ar Controlit Factory mobilo aplikāciju</p>
+		</br>
+	</body>
+</html>
