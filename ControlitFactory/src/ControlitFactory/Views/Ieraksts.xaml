@@ -92,9 +92,16 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Picker Grid.Column="0"  HorizontalOptions="FillAndExpand" ItemsSource="{Binding Path=Iekartas}" SelectedItem="{Binding Path=HighWoltageEquipment}"/>
-                    <Image Grid.Column="1" x:Name="ClearHighWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
+                    <Image Grid.Column="1" x:Name="AddNewHighWoltageEquipment" Source="add_g.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding AddNewHighWoltageEquipmentCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Grid.Column="2" x:Name="ClearHighWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
                 </Grid>
                 
                 
@@ -103,9 +110,16 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Picker Grid.Column="0" HorizontalOptions="FillAndExpand" ItemsSource="{Binding Path=Iekartas}" SelectedItem="{Binding Path=LowWoltageEquipment}"/>
-                    <Image Grid.Column="1" x:Name="LowWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
+                    <Image Grid.Column="1" x:Name="AddNewLowWoltageEquipmentt" Source="add_g.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding AddNewLowWoltageEquipmentCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Grid.Column="2" x:Name="LowWoltageEquipment" Source="clear.png" WidthRequest="16" HeightRequest="16" Margin="0,0,10,0"/>
                 </Grid>
                 <Label Grid.Row="12" Margin="5,0,0,0"  FontSize="Small" x:Name="EquipmentCallibrationLabel"  Text="{localization:Translate EquipmentCallibrationLabel}"/>
                 <Entry Grid.Row="13" FontSize="Small" x:Name="IekartasKalibracija" Text="{Binding  Path=DefektacijasAkts.IekartasKalibracija, Mode=TwoWay }"/>

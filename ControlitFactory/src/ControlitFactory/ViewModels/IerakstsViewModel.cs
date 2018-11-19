@@ -18,6 +18,7 @@ using ControlitFactory.Support;
 using ControlitFactory.Helpers;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using ControlitFactory.Views;
 
 namespace ControlitFactory.ViewModels
 {
@@ -31,6 +32,23 @@ namespace ControlitFactory.ViewModels
             DeleteCommand = new DelegateCommand(DeleteAsync);
             OpenMapCommand = new DelegateCommand(OpenMap);
             ShareCommand = new DelegateCommand(Share);
+            AddNewHighWoltageEquipmentCommand = new DelegateCommand(AddNewHighWoltageEquipment);
+            AddNewLowWoltageEquipmentCommand = new DelegateCommand(AddNewLowWoltageEquipment);
+        }
+
+        private void AddNewHighWoltageEquipment()
+        {
+            var param = new NavigationParameters();
+            param.Add(nameof(Classifiers.Id), 0);
+            param.Add("j", 1);
+            _navigationService.NavigateAsync(nameof(EquipmentEdit), param);
+        }
+        private void AddNewLowWoltageEquipment()
+        {
+            var param = new NavigationParameters();
+            param.Add(nameof(Classifiers.Id), 0);
+            param.Add("j", 2);
+            _navigationService.NavigateAsync(nameof(EquipmentEdit), param);
         }
 
         public Func<SignatureImageFormat, ImageConstructionSettings, Task<Stream>> GetImageStreamAsync { get; set; }
@@ -75,7 +93,7 @@ namespace ControlitFactory.ViewModels
                         }
                         else
                         {
-                            App.Profils = new Settings();
+                            App.Profils = new Models.Settings();
                         }
                         if (!string.IsNullOrWhiteSpace(App.Profils.Logo))
                         {
@@ -173,6 +191,8 @@ namespace ControlitFactory.ViewModels
         public DelegateCommand OpenMapCommand { get; set; }
         public DelegateCommand ShareCommand { get; set; }
         public DelegateCommand DeleteCommand { get; set; }
+        public DelegateCommand AddNewHighWoltageEquipmentCommand { get; set; }
+        public DelegateCommand AddNewLowWoltageEquipmentCommand { get; set; }
 
         private async void Save()
         {
@@ -425,12 +445,32 @@ namespace ControlitFactory.ViewModels
                 DefektacijasAkts.Adrese = (string)parameters["adrese"];
                 RaisePropertyChanged(nameof(DefektacijasAkts));
             }
+            else if (parameters.ContainsKey("jhw"))
+            {
+                //_iekartas = null;
+                //var i = Iekartas;
+                //RaisePropertyChanged(nameof(Iekartas));
+                var iekarta = App.Database.GetClassifier((int)parameters["jhw"]);
+                Iekartas.Add(iekarta);
+                HighWoltageEquipment = iekarta;
+                RaisePropertyChanged(nameof(HighWoltageEquipment));
+            }
+            else if (parameters.ContainsKey("jlw"))
+            {
+                //_iekartas = null;
+                //var i = Iekartas;
+                //RaisePropertyChanged(nameof(Iekartas));
+                var iekarta = App.Database.GetClassifier((int)parameters["jlw"]);
+                Iekartas.Add(iekarta);
+                LowWoltageEquipment = iekarta;
+                RaisePropertyChanged(nameof(LowWoltageEquipment));
+            }
             else if (parameters.ContainsKey(nameof(DefektacijasAkts.Id)))
             {
                 var id = (int)parameters[nameof(DefektacijasAkts.Id)];
                 if (id == 0)
                 {
-                    Settings _profile = new Settings();
+                    var _profile = new Models.Settings();
                     var items = App.Database.GetProfile().Result;
                     if (items.Count > 0)
                     {
@@ -449,7 +489,7 @@ namespace ControlitFactory.ViewModels
                 }
                 else
                 {
-                    Settings _profile = new Settings();
+                    var _profile = new Models.Settings();
                     var items = App.Database.GetProfile().Result;
                     if (items.Count > 0)
                     {

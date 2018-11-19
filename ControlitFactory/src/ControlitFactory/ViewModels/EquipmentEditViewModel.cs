@@ -13,6 +13,9 @@ namespace ControlitFactory.ViewModels
 {
     public class EquipmentEditViewModel : ViewModelBase
     {
+        private bool noIvadformasHW;
+        private bool noIvadformasLW;
+
         public EquipmentEditViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IDeviceService deviceService) : base(navigationService, pageDialogService, deviceService)
         {
             SaveCommand = new DelegateCommand(Save);
@@ -29,24 +32,50 @@ namespace ControlitFactory.ViewModels
         public void Save()
         {
             App.Database.InsertClassifier(Equipment);
-            _navigationService.NavigateAsync("Equipment");
+            if (noIvadformasHW)
+            {
+                var param = new NavigationParameters();
+                param.Add("jhw", Equipment.Id);
+                _navigationService.GoBackAsync(param);
+            }
+            else if (noIvadformasLW)
+            {
+                var param = new NavigationParameters();
+                param.Add("jlw", Equipment.Id);
+                _navigationService.GoBackAsync(param);
+            }
+            else
+            {
+                _navigationService.NavigateAsync("Equipment");
+            }
         }
         public async void Dzest()
         {
-            var tr = new TranslateExtension();
-
-            var r = await _pageDialogService.DisplayActionSheetAsync(tr.GetTranslation("DeleteConfirmationLabel"), tr.GetTranslation("QuestionLabel"), tr.GetTranslation("YesLabel"), tr.GetTranslation("NoLabel"));
-
-            if (r == tr.GetTranslation("YesLabel"))
+            if (VarDzest)
             {
-                await App.Database.DeleteClassifier(Equipment);
-                await _navigationService.NavigateAsync("Equipment");
+                var tr = new TranslateExtension();
+
+                var r = await _pageDialogService.DisplayActionSheetAsync(tr.GetTranslation("DeleteConfirmationLabel"), tr.GetTranslation("QuestionLabel"), tr.GetTranslation("YesLabel"), tr.GetTranslation("NoLabel"));
+
+                if (r == tr.GetTranslation("YesLabel"))
+                {
+                    await App.Database.DeleteClassifier(Equipment);
+                    await _navigationService.NavigateAsync("Equipment");
+                }
+            }
+            else
+            {
+                _navigationService.GoBackAsync();
             }
         }
         private void Cancel()
         {
-            _navigationService.NavigateAsync("Equipment");
+            if (noIvadformasHW || noIvadformasLW)
+                _navigationService.GoBackAsync();
+            else
+                _navigationService.NavigateAsync("Equipment");
         }
+        public bool VarDzest => !noIvadformasHW && !noIvadformasLW;
 
         public override void OnNavigatingTo(NavigationParameters parameters)
         {
@@ -57,6 +86,11 @@ namespace ControlitFactory.ViewModels
                 if (id == 0)
                 {
                     Equipment = new Classifiers();
+                    if (parameters.ContainsKey("j"))
+                    {
+                        noIvadformasHW = (int)parameters["j"] == 1;
+                        noIvadformasLW = (int)parameters["j"] == 2;
+                    }
                 }
                 else
                 {

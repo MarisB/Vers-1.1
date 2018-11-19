@@ -208,11 +208,11 @@ namespace ControlitFactory.DataManager
                 db.InsertAsync(ieraksts).ContinueWith(t =>
                 {
                     Console.WriteLine("New customer ID: {0}", ieraksts.Id);
-                });
+                }).Wait();
             }
             else
             {
-                db.UpdateAsync(ieraksts);
+                db.UpdateAsync(ieraksts).Wait();
             }
         }
         public async Task DeleteClassifier(Classifiers ieraksts)
